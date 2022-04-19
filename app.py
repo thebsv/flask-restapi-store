@@ -26,9 +26,7 @@ def get_items():
         total_price -= (total_price*0.05)
 
     res = sorted(res, key=lambda x: x["item"])
-
     res += [{"totalPrice": total_price}, {"totalTax": total_tax}]
-
     return jsonify(res), 200
 
 
