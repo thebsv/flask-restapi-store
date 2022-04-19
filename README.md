@@ -19,4 +19,3 @@ Running the application using docker:
 ## References:
 https://stackoverflow.com/questions/7824101/return-http-status-code-201-in-flask
 https://stackoverflow.com/questions/152580/whats-the-canonical-way-to-check-for-type-in-python
-https://levelup.gitconnected.com/full-stack-web-app-with-python-react-and-bootstrap-backend-8592baa6e4eb
