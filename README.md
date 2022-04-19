@@ -15,6 +15,22 @@ Running the application using docker:
 - `docker build -t restapi:latest -f Dockerfile .`
 - `docker run -it -p 8000:8000 restapi:latest`
 
+## API:
+
+Request Type: GET
+Request: `0.0.0.0:8000/`
+Expected Response: Welcome message
+
+Request Type: GET
+Request: `0.0.0.0:8000/store`
+Expected Response: 200, Total bill, with total price and tax calculated
+Error Response: 503, 500
+
+Request Type: POST
+Request: `0.0.0.0:8000/store`
+Expected Body: Json list of inputs of purchases made
+Expected Response: 200, List of True/False for each item inserted into the db.
+Error Response: 503, 500
 
 ## References:
 https://stackoverflow.com/questions/7824101/return-http-status-code-201-in-flask

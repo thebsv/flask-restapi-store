@@ -31,15 +31,14 @@ def get_items():
                 "price": item[3],
                 "tax": item[4],
                 "total": item[5],
-                "quantity": item[6],
-                "time": str(datetime.now())
+                "quantity": item[6]
             })
 
         if total_price > 2000.0:
             total_price -= (total_price*0.05)
 
         res = sorted(res, key=lambda x: x["item"])
-        res += [{"totalPrice": total_price}, {"totalTax": total_tax}]
+        res += [{"totalPrice": total_price}, {"totalTax": total_tax}, {"time": str(datetime.now())}]
         return jsonify(res), 200
     except Exception as e:
         res = {"An exception occurred while processing the request": str(e)}
