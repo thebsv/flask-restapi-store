@@ -1,8 +1,19 @@
 from flask import Flask, jsonify, request
 import controller
+
+from datetime import datetime
 from db import create_table
 
 app = Flask(__name__)
+
+
+@app.route('/')
+def index():
+    resp = {
+        "api": "v1.0",
+        "message": "welcome to the store!"
+    }
+    return jsonify(resp), 200
 
 
 @app.route('/store', methods=["GET"])
@@ -20,7 +31,8 @@ def get_items():
                 "price": item[3],
                 "tax": item[4],
                 "total": item[5],
-                "quantity": item[6]
+                "quantity": item[6],
+                "time": str(datetime.now())
             })
 
         if total_price > 2000.0:
