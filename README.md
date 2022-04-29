@@ -35,3 +35,49 @@ Error Response: 503, 500
 ## References:
 https://stackoverflow.com/questions/7824101/return-http-status-code-201-in-flask
 https://stackoverflow.com/questions/152580/whats-the-canonical-way-to-check-for-type-in-python
+
+## Tests:
+Input 1:
+```
+[{
+       "item": "Headache pills",
+       "itemCategory": "Medicine",
+       "quantity": 5,
+       "price": 50
+   },
+   {
+       "item": "Sandwich",
+       "itemCategory": "Food",
+       "quantity": 2,
+       "price": 200
+   },
+   {
+       "item": "Perfume",
+       "itemCategory": "Imported",
+       "quantity": 1,
+       "price": 4000
+   },
+   {
+       "item": "Black Swan",
+       "itemCategory": "Book",
+       "quantity": 1,
+       "price": 300
+   }
+]
+```
+Input 2 :
+```
+[{
+       "item": "Classical Songs Collection",
+       "itemCategory": "Music",
+       "quantity": 1,
+       "price": 500
+   },
+   {
+       "item": "Pants",
+       "itemCategory": "Clothes",
+       "quantity": 2,
+       "price": 1200
+   }
+]
+```

@@ -18,26 +18,30 @@ def index():
 
 @app.route('/store', methods=["GET"])
 def get_items():
+    from collections import namedtuple
+    from operator import itemgetter
+    Record = namedtuple('Record', ["id", "item", "itemCategory", "price", "tax", "total", "quantity"])
     try:
         items = controller.get_items()
         total_price, total_tax = 0.0, 0.0
         res = []
         for item in items:
-            total_tax += item[4]
-            total_price += item[5]
+            item = Record(*item)
+            total_tax += item.tax
+            total_price += item.total
             res.append({
-                "item": item[1],
-                "itemCategory": item[2],
-                "price": item[3],
-                "tax": item[4],
-                "total": item[5],
-                "quantity": item[6]
+                "item": item.item,
+                "itemCategory": item.itemCategory,
+                "price": item.price,
+                "tax": item.tax,
+                "total": item.total,
+                "quantity": item.quantity
             })
 
         if total_price > 2000.0:
             total_price -= (total_price*0.05)
 
-        res = sorted(res, key=lambda x: x["item"])
+        res = sorted(res, key=itemgetter("item"))
         res += [{"totalPrice": total_price}, {"totalTax": total_tax}, {"time": str(datetime.now())}]
         return jsonify(res), 200
     except Exception as e:
